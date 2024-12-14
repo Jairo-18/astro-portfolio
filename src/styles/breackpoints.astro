@@ -1,0 +1,115 @@
+---
+import GlobalStyles from './global.astro';
+import Variables from './variables.astro';
+---
+
+<style is:global>
+  /* Diseño base para escritorio (por defecto) */
+  body,
+  html {
+    font-size: var(--font-size-base);
+    background-color: var(--color-background);
+    color: var(--color-text);
+  }
+
+  .container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+  }
+
+  .nav-bar {
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+
+  h1 {
+    font-size: var(--font-size-xl);
+  }
+
+  @media (max-width: var(--breakpoint-xs)) {
+    body {
+      font-size: calc(var(--font-size-base) - 2px);
+    }
+
+    .nav-bar {
+      padding: var(--spacing-sm);
+    }
+
+    h1 {
+      font-size: var(--font-size-lg);
+    }
+  }
+
+  @media (max-width: var(--breakpoint-sm)) {
+    body {
+      font-size: var(--font-size-base);
+    }
+
+    .nav-bar {
+      padding: var(--spacing-sm);
+    }
+
+    h1 {
+      font-size: var(--font-size-lg);
+    }
+
+    .menu {
+      display: block;
+    }
+
+    .menu a {
+      padding: var(--spacing-sm);
+      display: block;
+    }
+  }
+
+  @media (max-width: var(--breakpoint-md)) {
+    body {
+      font-size: var(--font-size-base);
+    }
+
+    .nav-bar {
+      padding: var(--spacing-md);
+    }
+
+    h1 {
+      font-size: var(--font-size-xl);
+    }
+
+    .container {
+      padding: var(--container-padding);
+    }
+  }
+
+  @media (max-width: var(--breakpoint-lg)) {
+    body {
+      font-size: var(--font-size-base);
+    }
+
+    h1 {
+      font-size: var(--font-size-xxl);
+    }
+
+    .container {
+      padding: var(--container-padding);
+    }
+  }
+
+  @media (min-width: var(--breakpoint-xl)) {
+    body {
+      font-size: var(--font-size-xl);
+    }
+
+    .nav-bar {
+      padding: var(--spacing-lg);
+    }
+
+    h1 {
+      font-size: var(--font-size-xxl);
+    }
+
+    .container {
+      padding: var(--container-padding);
+    }
+  }
+</style>

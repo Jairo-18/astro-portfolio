@@ -4,6 +4,8 @@ interface Props {
   title: string;
 }
 const { title } = Astro.props;
+import GlobalStyles from '../styles/global.astro';
+import Breackpoints from '../styles/breackpoints.astro';
 ---
 
 <!doctype html>
@@ -15,32 +17,11 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <ClientRouter />
-  </head>
-  <body>
-    <div>
-      <slot />
-    </div>
+    <GlobalStyles />
+    <Breackpoints />
+  </head><body>
+    <slot />
   </body>
 </html>
 
-<style>
-  html {
-    font-family: system-ui, sans-serif;
-    background: #13151a;
-    color: #fff;
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  }
-
-  body {
-    height: 100%;
-    width: 100%;
-    @apply grid place-content-center p-20;
-  }
-
-  body > div {
-    @apply container;
-  }
-</style>
+<style></style>
