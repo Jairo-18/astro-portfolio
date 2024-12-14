@@ -1,46 +1,46 @@
 ---
 import { ClientRouter } from 'astro:transitions';
 interface Props {
-	title: string;
+  title: string;
 }
 const { title } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		<ClientRouter />
-	</head>
-	<body>
-		<div>
-			<slot />
-		</div>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <ClientRouter />
+  </head>
+  <body>
+    <div>
+      <slot />
+    </div>
+  </body>
 </html>
 
 <style>
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		color: #FFF;
-		height: 100%;
-		width: 100%;
-		margin: 0;
-		padding: 0;
-	}
-	
-	body{
-		height: 100%;
-		width: 100%;
-		@apply grid place-content-center p-20;
-	}
+  html {
+    font-family: system-ui, sans-serif;
+    background: #13151a;
+    color: #fff;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
 
-	body > div {
-		@apply container;
-	}
+  body {
+    height: 100%;
+    width: 100%;
+    @apply grid place-content-center p-20;
+  }
+
+  body > div {
+    @apply container;
+  }
 </style>
