@@ -5,11 +5,13 @@ import logo from '../../assets/images/logo.png';
 
 <div class="nav-bar">
   <div class="w-full flex justify-between items-center px-4 py-3 m-0">
-    <div class="flex items-center justify-start px-4 py-3 m-0">
+    <div class="flex items-center justify-start">
       <Image src={logo} alt="Logo optimizado" class="h-16 w-auto" />
       <a
-        href="/home"
-        class="hidden lg:block px-4 py-2 lg:px-0 text-black hover:text-gray-500 text-lg font-semibold"
+        type="button"
+        role="button"
+        href="/"
+        class="hidden lg:block px-4 py-2 lg:px-0 text-black hover:text-blue-500/80 text-lg font-semibold"
       >
         Jhon Legarda - Frontend Developer
       </a>
@@ -17,123 +19,103 @@ import logo from '../../assets/images/logo.png';
         Jhon Legarda - Frontend Developer
       </span>
     </div>
-    <div class="flex items-center justify-end m-0">
+
+    <nav class="hidden flex-row gap-x-10 opacity-90 md:flex">
+      <a href="/" class="hover:text-blue-500/80 active">Inicio</a>
+      <a href="/projects" class="hover:text-blue-500/80">Proyectos</a>
+      <a href="/about-me" class="hover:text-blue-500/80">Sobre mi</a>
+      <a href="/contact" class="hover:text-blue-500/80">Contacto</a>
+    </nav>
+  </div>
+  <div class="flex items-center justify-center m-0 p-3">
+    <nav class="md:hidden">
       <button
-        id="menu-toggle"
-        class="lg:hidden flex items-center p-2 border rounded-md focus:outline-none"
+        id="dropdownDefaultButton"
+        data-dropdown-toggle="dropdown"
+        onclick="toggleDropdown()"
+        class="text-black font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-white dark:hover:bg-white"
+        type="button"
       >
         <svg
+          class="w-2.5 h-2.5"
+          aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
           fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
+          viewBox="0 0 10 6"
         >
           <path
+            stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16"></path>
+            d="m1 1 4 4 4-4"></path>
         </svg>
       </button>
 
-      <nav
-        id="menu"
-        class="hidden lg:flex flex-col lg:flex-row lg:space-x-6 lg:items-center lg:static absolute top-full left-0 w-full bg-white lg:w-auto lg:bg-transparent lg:p-0 shadow-md lg:shadow-none"
-      >
-        <a
-          href="/home"
-          data-link
-          class="block px-4 py-2 lg:px-0 text-black hover:text-gray-500"
-          >Inicio</a
+      <!-- Dropdown menu -->
+      <div class="flex justify-end w-full">
+        <div
+          id="dropdown"
+          class="z-10 hidden absolute mx-auto bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-white mt-2"
         >
-        <a
-          href="/projects"
-          data-link
-          class="block px-4 py-2 lg:px-0 text-black hover:text-gray-500"
-          >Proyectos</a
-        >
-        <a
-          href="/about-me"
-          data-link
-          class="block px-4 py-2 lg:px-0 text-black hover:text-gray-500"
-          >Sobre mi</a
-        >
-        <a
-          href="/contact"
-          data-link
-          class="block px-4 py-2 lg:px-0 text-black hover:text-gray-500"
-          >Contacto</a
-        >
-      </nav>
-    </div>
+          <ul
+            class="py-2 text-sm text-dark"
+            aria-labelledby="dropdownDefaultButton"
+          >
+            <li>
+              <a
+                href="/"
+                class="block px-4 py-2 hover:bg-white dark:hover:text-white"
+                onclick="toggleDropdown()">Inicio</a
+              >
+            </li>
+
+            <li>
+              <a
+                href="/projects"
+                class="block px-4 py-2 hover:bg-white dark:hover:text-white"
+                onclick="toggleDropdown()">Proyectos</a
+              >
+            </li>
+
+            <li>
+              <a
+                href="/about-me"
+                class="block px-4 py-2 hover:bg-white dark:hover:text-white"
+                onclick="toggleDropdown()">Sobre mi</a
+              >
+            </li>
+            <li>
+              <a
+                href="/contact"
+                class="block px-4 py-2 hover:bg-white dark:hover:text-white"
+                onclick="toggleDropdown()">Contacto</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   </div>
 </div>
 
-<script>
-  const initMenu = () => {
-    const menuToggle = document.getElementById('menu-toggle');
-    const menu = document.getElementById('menu');
-    const menuLinks = menu?.querySelectorAll('a[data-link]');
-
-    const handleResize = () => {
-      // En desktop, el menú siempre debe ser visible
-      if (window.innerWidth >= 1024) {
-        menu?.classList.remove('hidden');
-      } else {
-        // En mobile, asegurarse de que el menú esté oculto inicialmente
-        menu?.classList.add('hidden');
-      }
-    };
-
-    // Función para resetear el estado del menú
-    const resetMenuState = () => {
-      if (window.innerWidth < 1024) {
-        menu?.classList.add('hidden');
-      } else {
-        menu?.classList.remove('hidden');
-      }
-    };
-
-    // Alternar visibilidad del menú en mobile
-    menuToggle?.addEventListener('click', () => {
-      menu?.classList.toggle('hidden');
-    });
-
-    // Interceptar navegación y cerrar el menú
-    menuLinks?.forEach((link) => {
-      link.addEventListener('click', (event) => {
-        event.preventDefault(); // Evitar recarga de página completa
-        const path = link.getAttribute('href');
-        if (path) {
-          window.history.pushState({}, '', path); // Actualiza la URL
-          dispatchEvent(new Event('route-change')); // Evento para manejar cambios dinámicos
-          menu?.classList.add('hidden'); // Ocultar menú en mobile después de hacer clic
-        }
-      });
-    });
-
-    // Manejar cambios de tamaño de pantalla
-    window.addEventListener('resize', handleResize);
-
-    // Evento de cambio de ruta para resetear el estado del menú
-    window.addEventListener('route-change', resetMenuState);
-
-    // Evento de carga para inicializar correctamente
-    window.addEventListener('load', resetMenuState);
-
-    // Ejecutar manejo inicial
-    handleResize();
-  };
-
-  // Inicializar el menú cuando se cargue la página
-  document.addEventListener('DOMContentLoaded', initMenu);
-
-  // Evento personalizado para manejar cambios de ruta
-  window.addEventListener('route-change', () => {
-    const currentPath = window.location.pathname;
-    // console.log('Ruta cambiada a:', currentPath);
+<script is:inline>
+  const isMobile = window.innerWidth <= 768;
+  window.addEventListener('scroll', function () {
+    const header = document.getElementById('dynamicHeader');
+    if (window.scrollY > 50 && !isMobile) {
+      header.classList.remove('bg-transparent');
+      header.classList.add('bg-neutral-950/50', 'backdrop-blur-2xl');
+    } else {
+      header.classList.remove('bg-neutral-950/50', 'backdrop-blur-2xl');
+      header.classList.add('bg-transparent');
+    }
   });
+
+  function toggleDropdown() {
+    const dropdown = document.getElementById('dropdown');
+    dropdown.classList.toggle('hidden');
+  }
 </script>
 
 <style></style>
