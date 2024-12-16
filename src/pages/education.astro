@@ -10,8 +10,10 @@ import Layout from '../layouts/Layout.astro';
   <div
     class="container-content-center shadow shadow-stone-800 rounded-lg m-4 p-4 text-center"
   >
-    <h1 class="text-4xl font-bold">Mi educación</h1>
-    <div class="flex justify-center gap-4">
+    <h1 class="text-4xl font-bold p-2">Mi educación</h1>
+    <div
+      class="flex flex-col lg:flex-row lg:justify-between justify-center gap-4"
+    >
       <EducationList education={skillsEducation} />
       <CertificationList certification={skillsCertification} />
     </div>
