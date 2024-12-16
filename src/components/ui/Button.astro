@@ -1,0 +1,30 @@
+---
+interface Props {
+  href?: string;
+  type?: 'button' | 'submit';
+  variant?: 'primary' | 'secondary';
+  class?: string;
+}
+
+const {
+  href,
+  type = 'button',
+  variant = 'primary',
+  class: className = '',
+} = Astro.props;
+
+const baseStyles = 'px-6 py-3 rounded-lg transition-colors';
+const variants = {
+  primary: 'bg-purple-600 text-white hover:bg-purple-700',
+  secondary: 'bg-gray-800 text-white hover:bg-gray-900',
+};
+
+const Component = href ? 'a' : 'button';
+---
+
+<Component
+  {...href ? { href } : { type }}
+  class:list={[baseStyles, variants[variant], className]}
+>
+  <slot />
+</Component>

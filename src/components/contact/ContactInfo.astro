@@ -1,0 +1,40 @@
+---
+interface ContactLink {
+  icon: string;
+  label: string;
+  href: string;
+}
+
+const contactLinks: ContactLink[] = [
+  {
+    icon: '📧',
+    label: 'jhonlegarda1.2@email.com',
+    href: 'mailto:tu@email.com',
+  },
+  {
+    icon: '💼',
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/jhon-jairo-legarda-erazo-ba02422a4/',
+  },
+  {
+    icon: '🐙',
+    label: 'GitHub',
+    href: 'https://github.com/Jairo-18',
+  },
+];
+---
+
+<div class="">
+  <div class="">
+    {
+      contactLinks.map(({ icon, label, href }) => (
+        <p class="flex items-center text-gray-600">
+          <span class="mr-2">{icon}</span>
+          <a href={href} target="_blank" class="hover:text-purple-600">
+            {label}
+          </a>
+        </p>
+      ))
+    }
+  </div>
+</div>

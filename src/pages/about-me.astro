@@ -10,7 +10,7 @@ import perfil from '../assets/images/perfil.png';
   <div
     class="container-content-center shadow shadow-stone-800 rounded-lg m-4 p-4"
   >
-    <h1 class="text-4xl font-bold p-2">Sobre mí</h1>
+    <h1 class="text-4xl font-bold">Sobre mí</h1>
     <div class="">
       <div class="flex items-center justify-center p-4">
         <Image src={perfil} alt="Perfil" class="rounded-full w-40 h-40" />
@@ -21,7 +21,7 @@ import perfil from '../assets/images/perfil.png';
           excepcionales.
         </p>
         <div>
-          <h2 class="text-2xl font-bold mb-4 text-gray-800">Habilidades</h2>
+          <h2 class="text-2xl font-bold text-black">Habilidades</h2>
           <div class="flex flex-wrap gap-3">
             {skills.map((skills) => <Tags text={skills.name} />)}
           </div>
