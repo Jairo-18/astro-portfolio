@@ -6,18 +6,6 @@ import Variables from './variables.astro';
 <GlobalStyles />
 <Variables />
 <style is:global>
-  /* Diseño base para escritorio (por defecto) */
-  html,
-  body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    width: 100%;
-    font-size: var(--font-size-base);
-    background-color: var(--color-background);
-    color: var(--color-text);
-  }
-
   @media (max-width: var(--breakpoint-xs)) {
     body {
       font-size: calc(var(--font-size-base) - 2px);

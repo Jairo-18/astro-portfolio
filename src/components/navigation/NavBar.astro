@@ -4,19 +4,19 @@ import logo from '../../assets/images/logo.png';
 ---
 
 <div class="nav-bar">
-  <div class="w-full flex justify-between items-center px-4 py-3 m-0">
+  <div class="w-full flex justify-between items-center px-3 py-3 m-0 shadow-lg">
     <div class="flex items-center justify-start">
-      <Image src={logo} alt="Logo optimizado" class="h-16 w-auto" />
+      <Image src={logo} alt="Logo" class="h-16 w-auto" />
       <a
         type="button"
         role="button"
         href="/"
         class="hidden lg:block px-4 py-2 lg:px-0 text-black hover:text-blue-500/80 text-lg font-semibold"
       >
-        Jhon Legarda - Frontend Developer
+        Jhon Legarda
       </a>
       <span class="lg:hidden block px-2 text-black font-semibold">
-        Jhon Legarda - Frontend Developer
+        Jhon Legarda
       </span>
     </div>
 
@@ -26,76 +26,73 @@ import logo from '../../assets/images/logo.png';
       <a href="/about-me" class="hover:text-blue-500/80">Sobre mi</a>
       <a href="/contact" class="hover:text-blue-500/80">Contacto</a>
     </nav>
-  </div>
-  <div class="flex items-center justify-center m-0 p-3">
-    <nav class="md:hidden">
-      <button
-        id="dropdownDefaultButton"
-        data-dropdown-toggle="dropdown"
-        onclick="toggleDropdown()"
-        class="text-black font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-white dark:hover:bg-white"
-        type="button"
-      >
-        <svg
-          class="w-2.5 h-2.5"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 10 6"
+    <div class="flex items-center justify-center m-0 p-3 block md:hidden">
+      <nav class="md:hidden">
+        <button
+          id="dropdownDefaultButton"
+          data-dropdown-toggle="dropdown"
+          onclick="toggleDropdown()"
+          class="text-black font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-white dark:hover:bg-white"
+          type="button"
         >
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="m1 1 4 4 4-4"></path>
-        </svg>
-      </button>
-
-      <!-- Dropdown menu -->
-      <div class="flex justify-end w-full">
-        <div
-          id="dropdown"
-          class="z-10 hidden absolute mx-auto bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-white mt-2"
-        >
-          <ul
-            class="py-2 text-sm text-dark"
-            aria-labelledby="dropdownDefaultButton"
+          <svg
+            class="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
           >
-            <li>
-              <a
-                href="/"
-                class="block px-4 py-2 hover:bg-white dark:hover:text-white"
-                onclick="toggleDropdown()">Inicio</a
-              >
-            </li>
+            <rect x="3" y="6" width="18" height="2" fill="#000"></rect>
+            <rect x="3" y="11" width="18" height="2" fill="#000"></rect>
+            <rect x="3" y="16" width="18" height="2" fill="#000"></rect>
+          </svg>
+        </button>
 
-            <li>
-              <a
-                href="/projects"
-                class="block px-4 py-2 hover:bg-white dark:hover:text-white"
-                onclick="toggleDropdown()">Proyectos</a
-              >
-            </li>
+        <!-- Dropdown menu -->
+        <div class="flex justify-end w-full">
+          <div
+            id="dropdown"
+            class="z-10 hidden absolute mx-auto bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-white mt-2"
+          >
+            <ul
+              class="py-2 text-sm text-dark"
+              aria-labelledby="dropdownDefaultButton"
+            >
+              <li>
+                <a
+                  href="/"
+                  class="block px-4 py-2 hover:bg-white dark:hover:text-white"
+                  onclick="toggleDropdown()">Inicio</a
+                >
+              </li>
 
-            <li>
-              <a
-                href="/about-me"
-                class="block px-4 py-2 hover:bg-white dark:hover:text-white"
-                onclick="toggleDropdown()">Sobre mi</a
-              >
-            </li>
-            <li>
-              <a
-                href="/contact"
-                class="block px-4 py-2 hover:bg-white dark:hover:text-white"
-                onclick="toggleDropdown()">Contacto</a
-              >
-            </li>
-          </ul>
+              <li>
+                <a
+                  href="/projects"
+                  class="block px-4 py-2 hover:bg-white dark:hover:text-white"
+                  onclick="toggleDropdown()">Proyectos</a
+                >
+              </li>
+
+              <li>
+                <a
+                  href="/about-me"
+                  class="block px-4 py-2 hover:bg-white dark:hover:text-white"
+                  onclick="toggleDropdown()">Sobre mi</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/contact"
+                  class="block px-4 py-2 hover:bg-white dark:hover:text-white"
+                  onclick="toggleDropdown()">Contacto</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
   </div>
 </div>
 

@@ -1,8 +1,38 @@
 ---
+import { Image } from 'astro:assets';
+import Tags from '../components/ui/Tags.astro';
+import { skills } from '../data/Skills';
 import Layout from '../layouts/Layout.astro';
+import perfil from '../assets/images/perfil.png';
 ---
 
-<Layout title="Sobre mi"
-  ><div><span>Hola mundo</span></div>
-  <div><a type="button" role="button" href="/">Inicio</a></div>
+<Layout title="Sobre mí">
+  <div
+    class="container-content-center shadow shadow-stone-800 rounded-lg m-4 p-4"
+  >
+    <h1 class="text-4xl font-bold p-2">Sobre mí</h1>
+    <div class="">
+      <div class="flex items-center justify-center p-4">
+        <Image src={perfil} alt="Perfil" class="rounded-full w-40 h-40" />
+      </div>
+      <div class="space-y-6">
+        <p class="text-gray-600">
+          Soy un desarrollador frontend apasionado por crear experiencias web
+          excepcionales.
+        </p>
+        <div>
+          <h2 class="text-2xl font-bold mb-4 text-gray-800">Habilidades</h2>
+          <div class="flex flex-wrap gap-3">
+            {skills.map((skills) => <Tags text={skills.name} />)}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .borde {
+      box-shadow: cyan;
+    }
+  </style>
 </Layout>

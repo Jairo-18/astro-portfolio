@@ -1,0 +1,17 @@
+---
+interface Props {
+  text: string;
+  size?: 'sm' | 'md';
+}
+
+const { text, size = 'md' } = Astro.props;
+
+const sizes = {
+  sm: 'text-sm px-3 py-1',
+  md: 'px-4 py-2',
+};
+---
+
+<span class:list={['bg-purple-100 text-purple-800 rounded-full', sizes[size]]}>
+  {text}
+</span>
