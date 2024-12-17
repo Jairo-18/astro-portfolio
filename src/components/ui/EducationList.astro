@@ -15,11 +15,9 @@ const { education } = Astro.props;
     education.map((item) => (
       <div class="education-item shadow-md rounded-lg p-4 bg-white">
         <h3 class="text-xl font-semibold text-gray-800">
-          {item.institute_name}
+          <Tags text={item.institute_name} />
         </h3>
-        <div class="tags-container mt-2">
-          <Tags text={item.tittle} />
-        </div>
+        <div class="tags-container mt-2">{item.tittle}</div>
         <p class="text-gray-600  pt-2">
           <strong>Título:</strong> {item.tittle}
         </p>
