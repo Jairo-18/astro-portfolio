@@ -1,7 +1,18 @@
 ---
+import ProjectsGrid from '../components/projects/ProjectsGrid.astro';
+import { projects } from '../data/Projects';
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Proyectos"
-  ><a type="button" role="button" href="/">¡En proceso! Click aquí</a>
+<Layout title="Proyectos">
+  <div
+    class="container-content-center shadow shadow-stone-800 rounded-lg m-4 p-4 text-center"
+  >
+    <h1 class="font-bold p-2">Mis Proyectos</h1>
+    <div
+      class="flex flex-col lg:flex-row lg:justify-between justify-center gap-4"
+    >
+      <ProjectsGrid projects={projects} />
+    </div>
+  </div>
 </Layout>

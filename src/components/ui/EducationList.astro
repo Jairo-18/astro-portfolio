@@ -18,9 +18,9 @@ const { education } = Astro.props;
           <Tags text={item.institute_name} />
         </h3>
         <div class="tags-container mt-2">{item.tittle}</div>
-        <p class="text-gray-600  pt-2">
+        {/* <p class="text-gray-600  pt-2">
           <strong>Título:</strong> {item.tittle}
-        </p>
+        </p> */}
         <p class="text-gray-500">
           <strong>Fechas:</strong>{' '}
           {item.start_date instanceof Date
