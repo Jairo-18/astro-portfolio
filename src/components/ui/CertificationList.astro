@@ -19,17 +19,14 @@ const { certification } = Astro.props;
           <Tags text={item.institute_name} />
         </h3>
         <div class="tags-container mt-2">{item.tittle}</div>
-        {/* <p class="text-gray-600 pt-2">
-          <strong>Título:</strong> {item.tittle}
-        </p> */}
         <p class="text-gray-500">
           <strong>Fechas:</strong>{' '}
           {item.start_date instanceof Date
-            ? item.start_date.toLocaleDateString()
+            ? item.start_date.getFullYear()
             : item.start_date}{' '}
           -{' '}
           {item.end_date instanceof Date
-            ? item.end_date.toLocaleDateString()
+            ? item.end_date.getFullYear()
             : item.end_date}
         </p>
       </div>

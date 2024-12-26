@@ -13,7 +13,7 @@ const { education } = Astro.props;
 <div class="education-list space-y-6">
   {
     education.map((item) => (
-      <div class="education-item shadow-md rounded-lg p-4 bg-white">
+      <div class="education-item shadow-md rounded-lg p-4 bg-white justify-start md:justify-start">
         <h3 class="text-xl font-semibold text-gray-800">
           <Tags text={item.institute_name} />
         </h3>
@@ -24,11 +24,11 @@ const { education } = Astro.props;
         <p class="text-gray-500">
           <strong>Fechas:</strong>{' '}
           {item.start_date instanceof Date
-            ? item.start_date.toLocaleDateString()
+            ? item.start_date.getFullYear()
             : item.start_date}{' '}
           -{' '}
           {item.end_date instanceof Date
-            ? item.end_date.toLocaleDateString()
+            ? item.end_date.getFullYear()
             : item.end_date}
         </p>
       </div>

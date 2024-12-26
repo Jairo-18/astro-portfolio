@@ -1,4 +1,5 @@
 ---
+// Importaciones necesarias
 import { ClientRouter } from 'astro:transitions';
 interface Props {
   title: string;
@@ -23,15 +24,16 @@ import Footer from '../components/navigation/Footer.astro';
     <GlobalStyles />
     <Breackpoints />
     <Variables />
-  </head><body>
+  </head>
+  <body
+    class="bg-white text-black dark:bg-gray-700 dark:text-white transition-colors"
+  >
     <NavBar />
 
-    <main class="main-content">
+    <main class="main-content p-6">
       <slot />
     </main>
 
     <Footer />
   </body>
 </html>
-
-<style></style>
