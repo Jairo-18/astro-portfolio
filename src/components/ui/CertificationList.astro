@@ -14,13 +14,16 @@ const { certification } = Astro.props;
 <div class="education-list space-y-6">
   {
     certification.map((item) => (
-      <div class="education-item shadow-md rounded-lg p-4 bg-white">
-        <h3 class="text-xl font-semibold text-gray-800">
-          <Tags text={item.institute_name} />
-        </h3>
-        <div class="tags-container mt-2">{item.tittle}</div>
-        <p class="text-gray-500">
-          <strong>Fechas:</strong>{' '}
+      <div class=" selection: shadow-md rounded-lg p-4  bg-white dark:bg-gray-700">
+        <div class="text-center">
+          {' '}
+          <h3 class="text-xl font-semibold text-gray-800">
+            <Tags text={item.institute_name} />
+          </h3>
+        </div>
+        <div class=" text-black dark:text-white mt-2">{item.tittle}</div>
+        <p class=" text-black dark:text-white">
+          <strong class="text-black">Fechas:</strong>{' '}
           {item.start_date instanceof Date
             ? item.start_date.getFullYear()
             : item.start_date}{' '}

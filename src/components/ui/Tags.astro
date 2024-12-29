@@ -12,6 +12,11 @@ const sizes = {
 };
 ---
 
-<span class:list={['bg-purple-100 text-purple-800 rounded-full', sizes[size]]}>
+<span
+  class:list={[
+    'bg-purple-200 dark:bg-purple-800 text-purple-500 dark:text-black rounded-full',
+    sizes[size],
+  ]}
+>
   {text}
 </span>
