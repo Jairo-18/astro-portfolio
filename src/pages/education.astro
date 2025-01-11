@@ -7,11 +7,11 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Educación">
-  <div class="brand-content-center shadow shadow-stone-800 rounded-lg m-4 p-4">
+  <article id="education-section">
     <h1 class="font-bold p-2">Mi educación</h1>
     <div class="flex flex-col lg:flex-row lg:justify-between gap-4">
       <EducationList education={skillsEducation} />
       <CertificationList certification={skillsCertification} />
     </div>
-  </div>
+  </article>
 </Layout>

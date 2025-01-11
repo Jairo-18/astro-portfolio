@@ -1,11 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Button from '../components/ui/Button.astro';
+import NavBar from '../components/navigation/NavBar.astro';
+import Footer from '../components/navigation/Footer.astro';
+import Projects from './projects.astro';
+import Education from './education.astro';
+import AboutMe from './about-me.astro';
+import Contact from './contact.astro';
 ---
 
 <Layout title="Portfolio">
-  <article class="brand-content-center">
-    <div class="flex flex-col">
+  <NavBar />
+  <article class="main-content">
+    <div class="w-full p-5">
       <div>
         <span class="font-bold mb-3 text-black dark:text-white">
           ¡Hola! Soy <span class="text-purple-600 dark:text-purple-500"
@@ -30,6 +37,11 @@ import Button from '../components/ui/Button.astro';
           Contacto
         </Button>
       </div>
+      <Projects />
+      <Education />
+      <AboutMe />
+      <Contact />
     </div>
   </article>
+  <Footer />
 </Layout>

@@ -5,8 +5,8 @@ import ThemeToggle from '../ui/ThemeToggle.astro';
 ---
 
 <!-- Configuración inicial del tema para evitar parpadeos -->
-<article
-  class="flex content-between nav z-[99999] w-full shadow-lg text-black bg-transparent dark:bg-gray-900 dark:text-white p-4"
+<nav
+  class="flex content-between nav z-[99999] w-full shadow-lg text-black bg-transparent backdrop-blur-md dark:bg-gray-900 dark:text-white p-4"
 >
   <div
     class="flex w-1/2 content-between justify-start text-xl gap-x-7 items-center"
@@ -16,7 +16,7 @@ import ThemeToggle from '../ui/ThemeToggle.astro';
       type="button"
       role="button"
       href="/"
-      class="inline-block text-black transform transition duration-500 ease-out hover:rotate-12 dark:hover:text-blue-400"
+      class="inline-block text-black transform transition duration-500 ease-out hover:rotate-12 hover:text-blue-700 dark:hover:text-blue-400"
     >
       Jhon Legarda
     </a>
@@ -35,27 +35,27 @@ import ThemeToggle from '../ui/ThemeToggle.astro';
   >
     <a
       href="/"
-      class="inline-block text-black transform transition duration-500 ease-out hover:rotate-12 dark:hover:text-blue-400"
+      class="inline-block text-black transform transition duration-500 ease-out hover:-rotate-12 hover:text-blue-700 dark:hover:text-blue-400 animate-pulse"
       >Inicio</a
     >
     <a
-      href="/projects"
-      class="inline-block text-black transform transition duration-500 ease-out hover:rotate-12 dark:hover:text-blue-400"
+      href="#projects-section"
+      class="inline-block text-black transform transition duration-500 ease-out hover:rotate-12 hover:text-blue-700 dark:hover:text-blue-400 animate-pulse"
       >Proyectos</a
     >
     <a
-      href="/education"
-      class="inline-block text-black transform transition duration-500 ease-out hover:rotate-12 dark:hover:text-blue-400"
+      href="#education-section"
+      class="inline-block text-black transform transition duration-500 ease-out hover:-rotate-12 hover:text-blue-700 dark:hover:text-blue-400 animate-pulse"
       >Educación</a
     >
     <a
-      href="/about-me"
-      class="inline-block text-black transform transition duration-500 ease-out hover:rotate-12 dark:hover:text-blue-400"
+      href="#aboutme-section"
+      class="inline-block text-black transform transition duration-500 ease-out hover:rotate-12 hover:text-blue-700 dark:hover:text-blue-400 animate-pulse"
       >Sobre mi</a
     >
     <a
-      href="/contact"
-      class="inline-block text-black transform transition duration-500 ease-out hover:rotate-12 dark:hover:text-blue-400"
+      href="#contant-section"
+      class="inline-block text-black transform transition duration-500 ease-out hover:-rotate-12 hover:text-blue-700 dark:hover:text-blue-600 animate-pulse"
       >Contacto</a
     >
   </div>
@@ -153,4 +153,4 @@ import ThemeToggle from '../ui/ThemeToggle.astro';
       dropdown.classList.toggle('hidden');
     }
   </script>
-</article>
+</nav>

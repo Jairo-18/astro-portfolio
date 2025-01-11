@@ -5,10 +5,8 @@ import Variables from './variables.astro';
 <style is:global>
   html,
   body {
-    width: 100% !important;
-    display: flex;
-    height: 100%;
-    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
     align-items: center;
@@ -25,15 +23,40 @@ import Variables from './variables.astro';
       'Open Sans',
       'Helvetica Neue',
       sans-serif;
-    /* background-color: var(--color-background); */
     color: var(--color-text);
   }
 
   .main-content {
     width: 100%;
-    height: calc(100vh - var(--navbar-height));
-    margin-top: 6%;
-    padding: 24px;
+    min-height: calc(100vh - var(--navbar-height));
+    padding-top: var(--navbar-height);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Centra el contenido */
+    background: linear-gradient(
+      120deg,
+      #ff3232,
+      #fcff33,
+      #65ff31,
+      #3835ff,
+      #e138ff,
+      #2bfcf9
+    );
+    background-size: 200% 200%;
+    animation: waveAnimation 8s ease infinite;
+  }
+
+  @keyframes waveAnimation {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
   }
 
   .nav {
@@ -41,13 +64,8 @@ import Variables from './variables.astro';
     height: var(--navbar-height);
   }
 
-  .brand-content-center {
-    height: 100%;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+  .footer {
+    height: var(--footer-height);
   }
 
   .education-list {
