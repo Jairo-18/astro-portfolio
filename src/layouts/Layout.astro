@@ -6,7 +6,6 @@ interface Props {
 }
 const { title } = Astro.props;
 import GlobalStyles from '../styles/global.astro';
-import Breackpoints from '../styles/breackpoints.astro';
 import Variables from '../styles/variables.astro';
 import NavBar from '../components/navigation/NavBar.astro';
 import Footer from '../components/navigation/Footer.astro';
@@ -23,19 +22,7 @@ import { ViewTransitions } from 'astro:transitions';
     <title>{title}</title>
     <ClientRouter />
     <GlobalStyles />
-    <Breackpoints />
     <Variables />
-
-    <!-- <script is:inline>
-      if (typeof window !== 'undefined') {
-        const theme =
-          localStorage.getItem('theme') ??
-          (window.matchMedia('(prefers-color-scheme: dark)').matches
-            ? 'dark'
-            : 'light');
-        document.documentElement.classList.toggle('dark', theme === 'dark');
-      }
-    </script> -->
   </head>
   <body
     class="bg-white text-black dark:bg-gray-700 dark:text-white transition-colors"

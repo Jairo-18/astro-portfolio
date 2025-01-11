@@ -4,30 +4,32 @@ import Button from '../components/ui/Button.astro';
 ---
 
 <Layout title="Portfolio">
-  <div
-    class="container-content-center shadow shadow-stone-800 rounded-lg m-4 p-4"
-  >
-    <h1 class="font-bold mb-3 text-black dark:text-white">
-      ¡Hola! Soy <span class="text-purple-600 dark:text-purple-500"
-        >Desarrollador Frontend</span
-      >
-    </h1>
-    <p class="text-black dark:text-white mb-3">
-      Creo experiencias web únicas y atractivas utilizando las últimas
-      tecnologías
-    </p>
-    <div class="flex justify-center gap-2">
-      <Button
-        href="/projects"
-        variant="secondary"
-        type="submit"
-        class="text-lg"
-      >
-        Ver proyectos
-      </Button>
-      <Button href="/contact" variant="primary" type="submit" class="text-lg">
-        Contacto
-      </Button>
+  <article class="brand-content-center">
+    <div class="flex flex-col">
+      <div>
+        <span class="font-bold mb-3 text-black dark:text-white">
+          ¡Hola! Soy <span class="text-purple-600 dark:text-purple-500"
+            >Desarrollador Frontend</span
+          >
+        </span>
+      </div>
+      <p class="text-black dark:text-white mb-3">
+        Creo experiencias web únicas y atractivas utilizando las últimas
+        tecnologías
+      </p>
+      <div class="flex justify-center gap-2">
+        <Button
+          href="/projects"
+          variant="secondary"
+          type="submit"
+          class="text-lg"
+        >
+          Ver proyectos
+        </Button>
+        <Button href="/contact" variant="primary" type="submit" class="text-lg">
+          Contacto
+        </Button>
+      </div>
     </div>
-  </div>
+  </article>
 </Layout>

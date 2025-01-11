@@ -5,138 +5,152 @@ import ThemeToggle from '../ui/ThemeToggle.astro';
 ---
 
 <!-- Configuración inicial del tema para evitar parpadeos -->
-<div class="nav-bar">
+<article
+  class="flex content-between nav z-[99999] w-full shadow-lg text-black bg-transparent dark:bg-gray-900 dark:text-white p-4"
+>
   <div
-    class="w-full flex justify-between items-center px-3 py-3 m-0 shadow-lg bg-white dark:bg-gray-900 dark:text-white"
+    class="flex w-1/2 content-between justify-start text-xl gap-x-7 items-center"
   >
-    <div class="flex items-center justify-start">
-      <Image src={logo} alt="Logo" class="h-16 w-auto" />
-      <a
-        type="button"
-        role="button"
-        href="/"
-        class="hidden lg:block px-4 py-2 lg:px-0 text-black dark:text-white hover:text-blue-500 text-lg font-semibold"
-      >
-        Jhon Legarda
-      </a>
-      <span
-        class="lg:hidden block px-2 text-black dark:text-white font-semibold"
-      >
-        Jhon Legarda
-      </span>
-    </div>
+    <Image src={logo} alt="Logo" class="h-16 w-auto rounded-full" />
+    <a
+      type="button"
+      role="button"
+      href="/"
+      class="inline-block text-black transform transition duration-500 ease-out hover:rotate-12 dark:hover:text-blue-400"
+    >
+      Jhon Legarda
+    </a>
+    <span
+      class="lg:hidden inline-block text-black transform transition duration-500 ease-out hover:rotate-12 dark:hover:text-blue-400"
+    >
+      Jhon Legarda
+    </span>
     <ThemeToggle />
-    <!-- Menú de navegación en desktop -->
-    <nav class="hidden flex-row gap-x-10 opacity-90 md:flex">
-      <a href="/" class="hover:text-blue-500 dark:hover:text-blue-400 active"
-        >Inicio</a
-      >
-      <a href="/projects" class="hover:text-blue-500 dark:hover:text-blue-400"
-        >Proyectos</a
-      >
-      <a href="/education" class="hover:text-blue-500 dark:hover:text-blue-400"
-        >Educación</a
-      >
-      <a href="/about-me" class="hover:text-blue-500 dark:hover:text-blue-400"
-        >Sobre mi</a
-      >
-      <a href="/contact" class="hover:text-blue-500 dark:hover:text-blue-400"
-        >Contacto</a
-      >
-    </nav>
-
-    <!-- Botón para abrir el menú móvil -->
-    <div class="flex items-center justify-center m-0 p-3 md:hidden">
-      <nav class="md:hidden bg-white dark:bg-gray-900 dark:text-white">
-        <button
-          id="dropdownDefaultButton"
-          data-dropdown-toggle="dropdown"
-          onclick="toggleDropdown()"
-          class="text-black dark:text-white font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-gray-800 dark:hover:bg-gray-700"
-          type="button"
-        >
-          <svg
-            class="w-5 h-5"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <rect x="3" y="6" width="18" height="2" fill="#000"></rect>
-            <rect x="3" y="11" width="18" height="2" fill="#000"></rect>
-            <rect x="3" y="16" width="18" height="2" fill="#000"></rect>
-          </svg>
-        </button>
-
-        <!-- Menú desplegable -->
-        <div class="flex justify-end w-full">
-          <div
-            id="dropdown"
-            class="z-10 hidden absolute mx-auto bg-white dark:bg-gray-800 divide-y divide-gray-100 rounded-lg shadow w-44 mt-2"
-          >
-            <ul
-              class="py-2 text-sm text-dark dark:text-white"
-              aria-labelledby="dropdownDefaultButton"
-            >
-              <li>
-                <a
-                  href="/"
-                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
-                  onclick="toggleDropdown()">Inicio</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/projects"
-                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
-                  onclick="toggleDropdown()">Proyectos</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/education"
-                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
-                  onclick="toggleDropdown()">Educación</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/about-me"
-                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
-                  onclick="toggleDropdown()">Sobre mi</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/contact"
-                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
-                  onclick="toggleDropdown()">Contacto</a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </div>
   </div>
-</div>
 
-<script is:inline>
-  const isMobile = window.innerWidth <= 768;
+  <!-- Menú de navegación en desktop -->
 
-  window.addEventListener('scroll', function () {
-    const header = document.getElementById('dynamicHeader');
-    if (window.scrollY > 50 && !isMobile) {
-      header.classList.remove('bg-transparent');
-      header.classList.add('bg-neutral-950/50', 'backdrop-blur-2xl');
-    } else {
-      header.classList.remove('bg-neutral-950/50', 'backdrop-blur-2xl');
-      header.classList.add('bg-transparent');
+  <div
+    class="flex w-1/2 content-between text-xl justify-end items-center gap-x-10"
+  >
+    <a
+      href="/"
+      class="inline-block text-black transform transition duration-500 ease-out hover:rotate-12 dark:hover:text-blue-400"
+      >Inicio</a
+    >
+    <a
+      href="/projects"
+      class="inline-block text-black transform transition duration-500 ease-out hover:rotate-12 dark:hover:text-blue-400"
+      >Proyectos</a
+    >
+    <a
+      href="/education"
+      class="inline-block text-black transform transition duration-500 ease-out hover:rotate-12 dark:hover:text-blue-400"
+      >Educación</a
+    >
+    <a
+      href="/about-me"
+      class="inline-block text-black transform transition duration-500 ease-out hover:rotate-12 dark:hover:text-blue-400"
+      >Sobre mi</a
+    >
+    <a
+      href="/contact"
+      class="inline-block text-black transform transition duration-500 ease-out hover:rotate-12 dark:hover:text-blue-400"
+      >Contacto</a
+    >
+  </div>
+
+  <!-- Botón para abrir el menú móvil -->
+  <div class="flex items-center justify-center m-0 p-3 md:hidden">
+    <nav class="md:hidden bg-white dark:bg-gray-900 dark:text-white">
+      <button
+        id="dropdownDefaultButton"
+        data-dropdown-toggle="dropdown"
+        onclick="toggleDropdown()"
+        class="text-black dark:text-white font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-gray-800 dark:hover:bg-gray-700"
+        type="button"
+      >
+        <svg
+          class="w-5 h-5"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <rect x="3" y="6" width="18" height="2" fill="#000"></rect>
+          <rect x="3" y="11" width="18" height="2" fill="#000"></rect>
+          <rect x="3" y="16" width="18" height="2" fill="#000"></rect>
+        </svg>
+      </button>
+
+      <!-- Menú desplegable -->
+      <div class="flex justify-end w-full">
+        <div
+          id="dropdown"
+          class="z-10 hidden absolute mx-auto bg-white dark:bg-gray-800 divide-y divide-gray-100 rounded-lg shadow w-44 mt-2"
+        >
+          <ul
+            class="py-2 text-sm text-dark dark:text-white"
+            aria-labelledby="dropdownDefaultButton"
+          >
+            <li>
+              <a
+                href="/"
+                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
+                onclick="toggleDropdown()">Inicio</a
+              >
+            </li>
+            <li>
+              <a
+                href="/projects"
+                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
+                onclick="toggleDropdown()">Proyectos</a
+              >
+            </li>
+            <li>
+              <a
+                href="/education"
+                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
+                onclick="toggleDropdown()">Educación</a
+              >
+            </li>
+            <li>
+              <a
+                href="/about-me"
+                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
+                onclick="toggleDropdown()">Sobre mi</a
+              >
+            </li>
+            <li>
+              <a
+                href="/contact"
+                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
+                onclick="toggleDropdown()">Contacto</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <script is:inline>
+    const isMobile = window.innerWidth <= 768;
+
+    window.addEventListener('scroll', function () {
+      const header = document.getElementById('dynamicHeader');
+      if (window.scrollY > 50 && !isMobile) {
+        header.classList.remove('bg-transparent');
+        header.classList.add('bg-neutral-950/50', 'backdrop-blur-2xl');
+      } else {
+        header.classList.remove('bg-neutral-950/50', 'backdrop-blur-2xl');
+        header.classList.add('bg-transparent');
+      }
+    });
+
+    function toggleDropdown() {
+      const dropdown = document.getElementById('dropdown');
+      dropdown.classList.toggle('hidden');
     }
-  });
-
-  function toggleDropdown() {
-    const dropdown = document.getElementById('dropdown');
-    dropdown.classList.toggle('hidden');
-  }
-</script>
+  </script>
+</article>
