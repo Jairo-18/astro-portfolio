@@ -34,15 +34,7 @@ import Variables from './variables.astro';
     flex-direction: column;
     justify-content: center;
     align-items: center; /* Centra el contenido */
-    background: linear-gradient(
-      120deg,
-      #ff3232,
-      #fcff33,
-      #65ff31,
-      #3835ff,
-      #e138ff,
-      #2bfcf9
-    );
+    background: linear-gradient(120deg, #f4f4f9 244, 244, 249);
     background-size: 200% 200%;
     animation: waveAnimation 8s ease infinite;
   }
@@ -66,6 +58,10 @@ import Variables from './variables.astro';
 
   .footer {
     height: var(--footer-height);
+  }
+
+  .cont {
+    height: calc(100vh - env(safe-area-inset-bottom));
   }
 
   .education-list {
