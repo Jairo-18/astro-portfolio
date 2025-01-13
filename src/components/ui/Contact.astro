@@ -1,0 +1,62 @@
+---
+// Puedes pasar los enlaces como props si quieres que el componente sea dinámico.
+const {
+  facebookUrl = 'https://www.facebook.com/jairo.legarda.353',
+  linkedinUrl = 'https://www.linkedin.com/in/jhon-jairo-legarda-erazo-ba02422a4/',
+  githubUrl = 'https://github.com/Jairo-18',
+  whatsappUrl = 'https://wa.me/573102103660',
+  email = 'jhonlegarda1.2@email.com',
+} = Astro.props;
+---
+
+<div class="flex space-x-4 justify-center">
+  <!-- Facebook -->
+  <a
+    href={facebookUrl}
+    target="_blank"
+    aria-label="Facebook"
+    class="hover:text-blue-500 transition"
+  >
+    <i class="fa-brands fa-facebook fa-2x"></i>
+  </a>
+
+  <!-- LinkedIn -->
+  <a
+    href={linkedinUrl}
+    target="_blank"
+    aria-label="LinkedIn"
+    class="hover:text-blue-500 transition"
+  >
+    <i class="fa-brands fa-linkedin fa-2x"></i>
+  </a>
+
+  <!-- GitHub -->
+  <a
+    href={githubUrl}
+    target="_blank"
+    aria-label="GitHub"
+    class="hover:text-gray-800 transition"
+  >
+    <i class="fa-brands fa-github fa-2x"></i>
+  </a>
+
+  <!-- WhatsApp -->
+  <a
+    href={whatsappUrl}
+    target="_blank"
+    aria-label="WhatsApp"
+    class="hover:text-green-500 transition"
+  >
+    <i class="fa-brands fa-whatsapp fa-2x"></i>
+  </a>
+
+  <!-- Correo -->
+  <a
+    href={`mailto:${email}`}
+    target="_blank"
+    aria-label="Correo"
+    class="hover:text-red-500 transition"
+  >
+    <i class="fa-solid fa-envelope fa-2x"></i>
+  </a>
+</div>

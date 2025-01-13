@@ -5,12 +5,18 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Proyectos">
-  <article id="projects-section">
-    <h1 class="font-bold text-black dark:text-white">Mis Proyectos</h1>
-    <div
-      class="flex flex-col lg:flex-row lg:justify-between justify-center gap-4"
+  <article id="projects-section" class="w-full full">
+    <section
+      class="h-screen w-screen items-center flex flex-col justify-center"
     >
-      <ProjectsGrid projects={projects} />
-    </div>
+      <div>
+        <h1 class="font-bold text-black dark:text-white">Mis Proyectos</h1>
+        <div
+          class="flex flex-col lg:flex-row lg:justify-between justify-center gap-4"
+        >
+          <ProjectsGrid projects={projects} />
+        </div>
+      </div>
+    </section>
   </article>
 </Layout>

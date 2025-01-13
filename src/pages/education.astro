@@ -7,11 +7,15 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Educación">
-  <article id="education-section">
-    <h1 class="font-bold p-2">Mi educación</h1>
-    <div class="flex flex-col lg:flex-row lg:justify-between gap-4">
-      <EducationList education={skillsEducation} />
-      <CertificationList certification={skillsCertification} />
-    </div>
+  <article id="education-section" class="w-full full">
+    <section
+      class="h-screen w-screen items-center flex flex-col justify-center"
+    >
+      <h1 class="font-bold p-2">Mi educación</h1>
+      <div class="flex flex-col lg:flex-row lg:justify-between gap-4">
+        <EducationList education={skillsEducation} />
+        <CertificationList certification={skillsCertification} />
+      </div>
+    </section>
   </article>
 </Layout>

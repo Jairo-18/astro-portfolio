@@ -20,11 +20,15 @@ import Variables from '../styles/variables.astro';
     <ClientRouter />
     <GlobalStyles />
     <Variables />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body
     class="bg-white text-black dark:bg-gray-700 dark:text-white transition-colors"
   >
-    <main>
+    <main class="w-full h-full justify-center items-center flex flex-col">
       <slot />
     </main>
   </body>

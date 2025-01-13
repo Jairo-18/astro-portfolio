@@ -7,8 +7,9 @@ import Variables from './variables.astro';
   body {
     width: 100%;
     min-height: 100vh;
-    margin: 0;
+    margin-top: 0;
     padding: 0;
+    overflow-x: hidden;
     align-items: center;
     font-size: var(--font-size-base);
     font-family:
@@ -25,11 +26,13 @@ import Variables from './variables.astro';
       sans-serif;
     color: var(--color-text);
   }
-
+  html {
+    scroll-padding-top: 75px; /* Altura de tu navbar */
+    scroll-behavior: smooth;
+  }
   .main-content {
     width: 100%;
-    min-height: calc(100vh - var(--navbar-height));
-    padding-top: var(--navbar-height);
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -54,14 +57,12 @@ import Variables from './variables.astro';
   .nav {
     position: fixed;
     height: var(--navbar-height);
+    top: 0;
+    left: 0;
   }
 
   .footer {
     height: var(--footer-height);
-  }
-
-  .cont {
-    height: calc(100vh - env(safe-area-inset-bottom));
   }
 
   .education-list {

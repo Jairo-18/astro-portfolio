@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import logo from '../../assets/images/logo.png';
 import ThemeToggle from '../ui/ThemeToggle.astro';
+import Navigation from '../ui/Navigation.astro';
 ---
 
 <!-- Configuración inicial del tema para evitar parpadeos -->
@@ -15,7 +16,7 @@ import ThemeToggle from '../ui/ThemeToggle.astro';
     <a
       type="button"
       role="button"
-      href="/"
+      href="#home-section"
       class="inline-block text-black transform transition duration-500 ease-out hover:rotate-12 hover:text-blue-700 dark:hover:text-blue-400"
     >
       Jhon Legarda
@@ -30,35 +31,7 @@ import ThemeToggle from '../ui/ThemeToggle.astro';
 
   <!-- Menú de navegación en desktop -->
 
-  <div
-    class="flex w-1/2 content-between text-xl justify-end items-center gap-x-10"
-  >
-    <a
-      href="/"
-      class="inline-block text-black transform transition duration-500 ease-out hover:-rotate-12 hover:text-blue-700 dark:hover:text-blue-400 animate-pulse"
-      >Inicio</a
-    >
-    <a
-      href="#projects-section"
-      class="inline-block text-black transform transition duration-500 ease-out hover:rotate-12 hover:text-blue-700 dark:hover:text-blue-400 animate-pulse"
-      >Proyectos</a
-    >
-    <a
-      href="#education-section"
-      class="inline-block text-black transform transition duration-500 ease-out hover:-rotate-12 hover:text-blue-700 dark:hover:text-blue-400 animate-pulse"
-      >Educación</a
-    >
-    <a
-      href="#aboutme-section"
-      class="inline-block text-black transform transition duration-500 ease-out hover:rotate-12 hover:text-blue-700 dark:hover:text-blue-400 animate-pulse"
-      >Sobre mi</a
-    >
-    <a
-      href="#contant-section"
-      class="inline-block text-black transform transition duration-500 ease-out hover:-rotate-12 hover:text-blue-700 dark:hover:text-blue-600 animate-pulse"
-      >Contacto</a
-    >
-  </div>
+  <div class="w-1/2 flex justify-end"><Navigation /></div>
 
   <!-- Botón para abrir el menú móvil -->
   <div class="flex items-center justify-center m-0 p-3 md:hidden">
