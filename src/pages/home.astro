@@ -11,16 +11,16 @@ import Layout from '../layouts/Layout.astro';
       style="background-image: url('https://images.unsplash.com/photo-1517134191118-9d595e4c8c2b?auto=format&fit=crop&q=80'); background-size: cover; background-position: center -75px;"
     >
       <div
-        class="relative flex flex-col z-10 text-center justify-center items-center px-4"
+        class="relative flex flex-col z-10 text-center justify-center items-center px-4 gap-y-5"
       >
-        <span class="text-4xl md:text-5xl font-bold mb-4">
+        <span class="text-4xl md:text-5xl font-bold">
           Hola, soy Jhon Jairo Legarda Erazo
         </span>
 
-        <p class="text-2xl md:text-3xl text-gray-200 mb-8">
+        <p class="text-2xl md:text-3xl text-gray-200">
           Desarrollador Frontend Junior
         </p>
-        <div class="flex content-between justify-center gap-4">
+        <div class="flex content-between justify-center">
           <Button
             href="#projects-section"
             variant="secondary"
@@ -29,16 +29,8 @@ import Layout from '../layouts/Layout.astro';
           >
             Ver proyectos
           </Button>
-          <Button
-            href="#contant-section"
-            variant="primary"
-            type="submit"
-            class="text-lg"
-          >
-            Contacto
-          </Button>
         </div>
-        <div class="pt-4"><Contact /></div>
+        <div class=""><Contact /></div>
       </div>
     </section>
   </article>

@@ -4,7 +4,7 @@ export interface Skills {
 }
 
 export const skills: Skills[] = [
-  { name: 'HTML5', category: 'frontend' },
+  { name: 'HTML', category: 'frontend' },
   { name: 'CSS', category: 'frontend' },
   { name: 'JavaScript', category: 'languages' },
   { name: 'TypeScript', category: 'languages' },
@@ -14,5 +14,4 @@ export const skills: Skills[] = [
   { name: 'React', category: 'frontend' },
   { name: 'Bootstrap', category: 'frontend' },
   { name: 'Git', category: 'tools' },
-  { name: 'Node', category: 'tools' },
 ];

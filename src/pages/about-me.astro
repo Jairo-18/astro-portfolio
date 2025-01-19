@@ -4,36 +4,104 @@ import Tags from '../components/ui/Tags.astro';
 import { skills } from '../data/Skills';
 import Layout from '../layouts/Layout.astro';
 import perfil from '../assets/images/perfil.png';
+import Carousel from '../components/ui/Carousel.astro';
+
+const misDatos = [
+  {
+    title: 'Mi vida',
+    description:
+      ' Soy una persona humilde, con ganas de crecer y superar cada obstáculo que se presenta en mi camino. Creo en el trabajo duro y en mantener una actitud positiva para construir una vida mejor. Con gratitud y determinación, busco aprender y mejorar constantemente, valorando cada paso del proceso. Mi meta es salir adelante, no solo en lo profesional, sino también como ser humano, siempre guiado por la humildad y el esfuerzo.',
+  },
+  {
+    title: 'Mi educación',
+    description:
+      'Estudié toda mi vida en el Colegio Nacional Pio XII donde curse 11 años de mi vida hasta ingresar al Instituto Tecnológico del Putumayo en la Tecnología en Desarrollo de Software, donde pude cultivar este amor por las tecnologías; principalmente quería estudiar filosofía y letras pero las computadoras, la modernidad y la tecnología me enamoraron de alguna manera...',
+  },
+  {
+    title: 'Mi trabajo',
+    description:
+      'He cumplido muchos roles de trabajo a lo largo de mi vida, desde los 13 años trabajando en construcción, arriesgando mi vida por tan poco y nada. Hoy tengo 19 años y mi sueño es ser uno de los mejores programadores que se haya visto por aquí. Participé en un proyecto de universidad en donde aprendí sobre algunas tecnologías de frontend y le debo el aprendizaje a un gran amigo de estudio, amigo de la vida Jheferson Checa.',
+  },
+];
 ---
 
 <Layout title="Sobre mí">
-  <article id="aboutme-section" class="w-full h-full">
-    <section
-      class="h-screen w-screen items-center flex flex-col justify-center "
-    >
-      <div
-        class="flex flex-col z-10 text-center justify-center items-center px-4"
-      >
-        <div class="space-y-6">
-          <h1 class="font-bold">Sobre mí</h1>
-        </div>
-        <div
-          class="flex items-center md:items-center md:justify-center justify-center p-2"
-        >
-          <Image src={perfil} alt="Perfil" class="rounded-full w-40 h-40" />
-        </div>
-        <div class="space-y-6">
-          <p class="text-black dark:text-white">
-            Soy un desarrollador frontend apasionado por crear experiencias web
-            excepcionales.
-          </p>
-
-          <h2 class="text-2xl font-bold text-black mb-2">Habilidades</h2>
-          <div class="flex flex-wrap gap-3">
-            {skills.map((skills) => <Tags text={skills.name} />)}
-          </div>
+  <article id="aboutme-section" class="w-full h-screen flex content-between">
+    <section class="w-1/2 h-full flex flex-col justify-center items-start p-10">
+      <div class="h-1/2"><Carousel slides={misDatos} /></div>
+      <div class="h-1/2">
+        <span class="text-xl font-black">Habilidades</span>
+        <div class="flex flex-wrap gap-3">
+          {
+            skills.map((skill, index) => (
+              <div class="w-1/5 mb-1 mt-1 ">
+                <Tags text={skill.name} />
+              </div>
+            ))
+          }
         </div>
       </div>
     </section>
+    <section class="w-1/2 h-full flex justify-center items-center p-10">
+      <div class="flex justify-center items-center">
+        <Image
+          src={perfil}
+          alt="Perfil"
+          class="rounded-lg object-cover w-2/3 h-2/3"
+        />
+      </div>
+    </section>
+
+    <script>
+      const carouselText = document.querySelector(
+        '.carousel-text',
+      ) as HTMLElement;
+      const items = document.querySelectorAll('.carousel-item');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const carouselContainer = document.querySelector('.carousel-container');
+      let currentIndex = 0;
+      let autoScroll: ReturnType<typeof setInterval> | null = null;
+
+      function updateCarousel() {
+        const offset = currentIndex * -100; // Calcular desplazamiento horizontal
+        if (carouselText) {
+          carouselText.style.transform = `translateX(${offset}%)`;
+        }
+      }
+
+      function startAutoScroll() {
+        autoScroll = setInterval(() => {
+          currentIndex = (currentIndex + 1) % items.length;
+          updateCarousel();
+        }, 10000);
+      }
+
+      function stopAutoScroll() {
+        if (autoScroll) {
+          clearInterval(autoScroll);
+          autoScroll = null;
+        }
+      }
+
+      // Evento para el botón "Siguiente"
+      nextBtn?.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % items.length;
+        updateCarousel();
+      });
+
+      // Evento para el botón "Anterior"
+      prevBtn?.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        updateCarousel();
+      });
+
+      // Pausar y reanudar el carrusel al pasar el mouse
+      carouselContainer?.addEventListener('mouseenter', stopAutoScroll);
+      carouselContainer?.addEventListener('mouseleave', startAutoScroll);
+
+      // Iniciar el desplazamiento automático
+      startAutoScroll();
+    </script>
   </article>
 </Layout>

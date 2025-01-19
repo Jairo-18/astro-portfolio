@@ -1,0 +1,72 @@
+---
+const { slides } = Astro.props;
+type Slide = {
+  title: string;
+  description: string;
+};
+---
+
+<div class="w-[600px] h-full" id="carousel">
+  <!-- Carousel container with relative positioning -->
+  <div class="relative h-full w-full rounded-lg">
+    {/* Botón Anterior */}
+    <button
+      id="prevBtn"
+      class="absolute left-0 top-1/2 -translate-y-1/2 h-12 w-12 flex items-center justify-center hover:text-blue-700 text-black rounded-r z-10"
+      aria-label="Anterior"
+    >
+      <i class="fa-solid fa-arrow-left"></i>
+    </button>
+
+    {/* Slides */}
+    {
+      slides.map((slide: Slide, index: number) => (
+        <div
+          class="absolute top-0 left-0 w-full h-full hidden p-10"
+          data-carousel-item
+        >
+          <h3 class="text-xl font-black text-center">{slide.title}</h3>
+          <p class="text-justify">{slide.description}</p>
+        </div>
+      ))
+    }
+
+    {/* Botón Siguiente */}
+    <button
+      id="nextBtn"
+      class="absolute right-0 top-1/2 -translate-y-1/2 h-12 w-12 flex items-center justify-center text-black hover:text-blue-700 rounded-l z-10"
+      aria-label="Siguiente"
+    >
+      <i class="fa-solid fa-arrow-right"></i>
+    </button>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const slides = document.querySelectorAll('[data-carousel-item]');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let currentIndex = 0;
+
+    function showSlide(index: number) {
+      slides.forEach((slide) => {
+        slide.classList.add('hidden');
+      });
+      slides[index].classList.remove('hidden');
+    }
+
+    prevBtn?.addEventListener('click', function () {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      showSlide(currentIndex);
+    });
+
+    nextBtn?.addEventListener('click', function () {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    });
+
+    // Mostrar el primer slide
+    showSlide(0);
+  });
+</script>
